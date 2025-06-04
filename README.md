@@ -1,34 +1,25 @@
 🛳 Titanic Survival Prediction - GDGoC Final Submission
+
 📌 프로젝트 개요
 본 프로젝트는 타이타닉 탑승자의 정보를 바탕으로 생존 여부를 예측하는 분류 문제입니다.
-다양한 전처리 조합과 세 가지 모델(Logistic Regression, Random Forest, XGBoost)을 실험하고,
-Validation Accuracy 기준 가장 높은 성능을 낸 조합을 최종 제출로 선정하였습니다.
+다양한 전처리 조합과 세 가지 모델(Logistic Regression, Random Forest, XGBoost)을 실험하고, Validation Accuracy 기준 가장 높은 성능을 낸 조합을 최종 제출로 선정하였습니다.
 
 🔧 전처리 과정
 데이터 전처리는 아래와 같은 방식으로 조합하여 실험을 진행하였습니다:
 
 결측치 처리
-
 Age: Pclass와 Sex 기준 그룹 평균으로 대체
-
 Fare: Pclass 기준 평균값으로 대체
-
 Embarked: 최빈값으로 대체
 
 특성 엔지니어링
-
 FamilySize: SibSp + Parch + 1 생성
-
 AgeGroup: 나이를 카테고리(Child, Teen, Young, Adult, Senior)로 변환 (선택적 적용)
-
 불필요한 열 제거
-
 PassengerId, Name, Ticket, Cabin, SibSp, Parch 등
 
 범주형 인코딩
-
 Sex, Embarked 등은 Label Encoding
-
 이상치 제거: Fare 열 기준으로 IQR 방식을 사용해 이상치 제거 여부 실험
 
 🧪 실험 조합 (총 4가지 전처리 조합 × 3개 모델 = 12개 실험)
